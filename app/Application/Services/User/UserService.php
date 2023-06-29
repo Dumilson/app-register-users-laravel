@@ -2,7 +2,7 @@
 namespace App\Application\Services\User;
 
 use App\Domain\User\User;
-use UserRepositoryInterface;
+use App\Domain\User\UserRepositoryInterface;
 
 class UserService{
     private $userRepository;
