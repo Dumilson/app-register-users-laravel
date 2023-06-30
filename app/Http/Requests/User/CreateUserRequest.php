@@ -23,8 +23,20 @@ class CreateUserRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'email' => 'required',
-            'password' => 'required'
+            'email' => 'required|unique:users,email',
+            'password' => 'required',
+            'phone.*' => 'required'
+        ];
+    }
+
+
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'O campo nome é obrigatório.',
+            'email.required' => 'O campo email é obrigatório.',
+            'email.unique' => 'O email já está em uso.',
+            'password.required' => 'O campo senha é obrigatório.'
         ];
     }
 }

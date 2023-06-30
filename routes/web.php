@@ -23,4 +23,5 @@ Route::group([
 ], function(){
     Route::get('/', [UserController::class, 'index'])->name("users.index");
     Route::post('/store', [UserController::class, 'store'])->name("users.post");
+    Route::get('/destroy/{id?}', [UserController::class, 'destroy'])->name("users.destroy");
 });

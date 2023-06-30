@@ -105,6 +105,16 @@ th {
     padding-right: 15px;
 }
 
+#remover{
+    background-color: #ff0000;
+    color: #fff;
+    margin-top: 1px;
+    margin-bottom: 2px;
+    border: none;
+    padding: 2px 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
 
 @media (max-width: 768px) {
     table {
