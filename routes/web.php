@@ -18,17 +18,20 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::group([
-    'prefix' => "users"
+    'prefix' => "users",
+    'middleware' => ['auth']
 ], function(){
     Route::get('/', [UserController::class, 'index'])->name("users.index");
     Route::post('/store', [UserController::class, 'store'])->name("users.post");
     Route::get('/destroy/{id?}', [UserController::class, 'destroy'])->name("users.destroy");
+
 });
 
 
 Route::group([
     'prefix' => "/"
 ], function(){
-    Route::get('/', [AuthController::class, 'index'])->name("auth.index");
+    Route::get('/', [AuthController::class, 'index'])->name("login");
     Route::post('/login', [AuthController::class, 'auth'])->name("auth.post");
+    Route::get('/logout', [AuthController::class, 'logOut'])->name("auth.logout");
 });

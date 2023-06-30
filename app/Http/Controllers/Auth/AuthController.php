@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Auth;
 use App\Application\Services\Auth\AuthService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\AuthRequest;
-use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
@@ -15,16 +14,24 @@ class AuthController extends Controller
     {
         $this->authService = $authService;
     }
-    public function index(){
+    public function index()
+    {
         return view('auth.login');
     }
 
-    public function auth(AuthRequest $authRequest){
+    public function logOut()
+    {
+        $this->authService->logout();
+        return  redirect()->route('login');
+    }
+
+    public function auth(AuthRequest $authRequest)
+    {
         $creds = $authRequest->only('email', 'password');
-        $auth= $this->authService->login($creds);
-        if($auth){
-            return "Logado";
+        $auth = $this->authService->login($creds);
+        if ($auth) {
+            return  redirect()->route('users.index');
         }
-        return "No logado";
+        return redirect()->back()->witth("error", "Credencias invalidas");
     }
 }
