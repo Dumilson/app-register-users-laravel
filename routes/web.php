@@ -29,7 +29,8 @@ Route::group([
 
 
 Route::group([
-    'prefix' => "/"
+    'prefix' => "/",
+    'middleware' => ['guest']
 ], function(){
     Route::get('/', [AuthController::class, 'index'])->name("login");
     Route::post('/login', [AuthController::class, 'auth'])->name("auth.post");

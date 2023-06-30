@@ -32,6 +32,6 @@ class AuthController extends Controller
         if ($auth) {
             return  redirect()->route('users.index');
         }
-        return redirect()->back()->witth("error", "Credencias invalidas");
+        return redirect()->back()->with("error", "Credencias invalidas");
     }
 }
