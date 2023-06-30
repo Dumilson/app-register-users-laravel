@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::group([
+    'prefix' => "users"
+], function(){
+    Route::get('/', [UserController::class, 'index'])->name("users.index");
+    Route::post('/store', [UserController::class, 'store'])->name("users.post");
+    Route::get('/destroy/{id?}', [UserController::class, 'destroy'])->name("users.destroy");
 });
