@@ -1,4 +1,4 @@
-@extends('users.template')
+@extends('template')
 @section('content')
     <div class="container">
         <h1>Formulário de Cadastro de Usuário</h1>
