@@ -15,7 +15,7 @@
             <input type="tel" name="phone[]" placeholder="Telefone" required>
             <div id="form-tel">
             </div>
-            <button href="#" onclick="addField()" id="add">Adicionar Telemovel</button>
+            <button type="button" onclick="addField()" id="add">Adicionar Telemovel</button>
             <input type="submit" value="Cadastrar">
         </form>
 
