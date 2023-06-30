@@ -27,9 +27,11 @@ Abra o arquivo .env em um editor de texto e configure as credenciais do banco de
     DB_USERNAME=user
     DB_PASSWORD=senha
 
-. Certifique-se de que essas informações sejam correspondentes às suas configurações locais.
+Certifique-se de que essas informações sejam correspondentes às suas configurações locais.
 
  Crie um `banco de dados vazio com o nome especificado no arquivo .env.` Isso pode ser feito usando uma ferramenta como o `phpMyAdmin` ou executando comandos SQL diretamente no banco de dados.
+
+### `Configuração do composer, Migration e Seed`
 
 Instale as dependências do projeto usando o Composer:
 
@@ -48,6 +50,7 @@ Depois de o seed os dados gravados para acesso ao sistema são :
         Email: admin@gmail.com
         Senha: admin
 
+### `Rodando o Projecto`
 Gere uma chave de aplicação única usando o comando:
 
     php artisan key:generate
