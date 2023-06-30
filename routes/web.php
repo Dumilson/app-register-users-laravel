@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,14 +15,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::group([
-    'prefix' => "users"
+    'prefix' => "users",
+    'middleware' => ['auth']
 ], function(){
     Route::get('/', [UserController::class, 'index'])->name("users.index");
     Route::post('/store', [UserController::class, 'store'])->name("users.post");
     Route::get('/destroy/{id?}', [UserController::class, 'destroy'])->name("users.destroy");
+
+});
+
+
+Route::group([
+    'prefix' => "/"
+], function(){
+    Route::get('/', [AuthController::class, 'index'])->name("login");
+    Route::post('/login', [AuthController::class, 'auth'])->name("auth.post");
+    Route::get('/logout', [AuthController::class, 'logOut'])->name("auth.logout");
 });
