@@ -24,7 +24,7 @@ Route::group([
     Route::get('/', [UserController::class, 'index'])->name("users.index");
     Route::post('/store', [UserController::class, 'store'])->name("users.post");
     Route::get('/destroy/{id?}', [UserController::class, 'destroy'])->name("users.destroy");
-
+    Route::get('/logout', [AuthController::class, 'logOut'])->name("auth.logout");
 });
 
 
@@ -34,5 +34,5 @@ Route::group([
 ], function(){
     Route::get('/', [AuthController::class, 'index'])->name("login");
     Route::post('/login', [AuthController::class, 'auth'])->name("auth.post");
-    Route::get('/logout', [AuthController::class, 'logOut'])->name("auth.logout");
+
 });
